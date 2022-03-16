@@ -43,7 +43,7 @@ export default {
         rel: "stylesheet"
       },{
         href:
-          "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css",
+          "https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css",
         rel: "stylesheet"
       }
     ]
@@ -53,7 +53,6 @@ export default {
     { src: "~/plugins/anime.js" },
     { src: "~/plugins/TiptapVuetify" },
     { src: "~/plugins/lodash.js" },
-    { src: "~/plugins/Vuesemantic.js" },
   ],
   components: true,
   buildModules: [
@@ -63,38 +62,7 @@ export default {
   axios: {
     //baseURL: "https://us-central1-hearingheartv2.cloudfunctions.net"
   },
-  modules: [
-    "@nuxtjs/axios",
-    [
-      "@nuxtjs/firebase",
-      {
-        config: {
-          apiKey: "AIzaSyDbWPoAEYM7ltYpF9z9PVUv1J_m5_AovaE",
-          authDomain: "hearingheartv2.firebaseapp.com",
-          projectId: "hearingheartv2",
-          databaseURL: "hearingheartv2-default-rtdb.firebaseio.com",
-          storageBucket: "hearingheartv2.appspot.com",
-          messagingSenderId: "286697236169",
-          appId: "1:286697236169:web:e633efc796b33282d20f18",
-          measurementId: "G-B6E6W4THHN",
-        },
-        services: {
-          auth: true,
-          firestore: true,
-          database: true,
-          functions: {
-            emulatorPort: 5001,
-            emulatorHost: "http://localhost"
-          },
-          storage: true,
-          messaging: true,
-          performance: true,
-          analytics: true,
-          remoteConfig: true
-        }
-      }
-    ]
-  ],
+  modules: [],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
