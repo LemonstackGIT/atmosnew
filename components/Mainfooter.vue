@@ -1,61 +1,50 @@
 <template>
   <footer>
-    <div id="fb-root"></div>
     <v-container>
       <v-row>
-        <v-col lg="6" md="6" cols="12">
-          <img
-            style="margin:10px"
-            src="/hearing-heart-logo.png"
-            alt="logo"
-            height="45"
-          />
-          <p class="desc">
-            Hearing Heart เป็นแพลตฟอร์มการสร้าง นักฟังเชิงลึกแห่งแรก
-            ที่ใช้หลักสูตรที่ได้รับการรับรองจากกรมสุขภาพจิตแห่งประเทศไทย
-          </p>
-        </v-col>
-        <v-col lg="2" md="6" cols="12">
-          <div class="header">บริการของเรา</div>
-          <div
-            class="footer-link"
-            v-for="(menu, index) in services"
-            @click="viewRoute(menu.link)"
-            v-bind:key="index"
-          >
-            {{ menu.name }}
+        <v-col lg="3" md="3" cols="12">
+          <div class="footer-section">
+            <div class="header">
+              Quick Link
+            </div>
+            <nuxt-link :to="menu.link" v-for="menu in menus" class="footer-link-box t2">
+              {{ menu.name }}
+            </nuxt-link>
           </div>
         </v-col>
-        <v-col lg="2" md="6" cols="12">
-          <div class="header">เกี่ยวกับเรา</div>
-          <div
-            class="footer-link"
-            v-for="(menu, index) in aboutAs"
-            @click="viewRoute(menu.link)"
-            v-bind:key="index"
-          >
-            {{ menu.name }}
+        <v-col lg="3" md="3" cols="12">
+          <div class="footer-section">
+            <div class="header">
+              Brands
+            </div>
+            <nuxt-link :to="brand.link" v-for="brand in brands" class="footer-link-box t2">
+              {{ brand.name }}
+            </nuxt-link>
           </div>
         </v-col>
-        <v-col lg="2" md="6" cols="12">
-          <div class="header">Follow Us</div>
-          <div
-            class="footer-link"
-            v-for="(menu, index) in followUs"
-            @click="viewRoute(menu.link)"
-            v-bind:key="index"
-          >
-            {{ menu.name }}
+        <v-col lg="3" md="3" cols="12">
+          <div class="footer-section">
+            <div class="header">
+              Supports
+            </div>
+            <nuxt-link :to="support.link" v-for="support in supports" class="footer-link-box t2">
+              {{ support.name }}
+            </nuxt-link>
+          </div>
+        </v-col>
+        <v-col lg="3" md="3" cols="12">
+          <div class="footer-section">
+            <div class="header">
+              Contact
+            </div>
+            <div v-for="contact in contacts" class="footer-link-box t2">
+              {{ contact.name }}
+            </div>
           </div>
         </v-col>
       </v-row>
-      <div class="bottom-section">
-        <div class="left">
-          Copyright © 2022 Hearing Heart. All rights reserved.
-        </div>
-        <div class="bottom-item right">Terms & Conditions</div>
-        <div class="bottom-item">Refund Policy</div>
-        <div class="bottom-item">Privacy Policy</div>
+      <div class="footer">
+        © atmos Bangkok. All Rights Reserved.
       </div>
     </v-container>
   </footer>
@@ -64,24 +53,62 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 export default {
+  computed: {
+    brands: {
+      get () {
+        return this.$nuxt.$store.state.brands
+      }
+    },
+    supports: {
+      get () {
+        return this.$nuxt.$store.state.supports
+      }
+    },
+    contacts: {
+      get () {
+        return this.$nuxt.$store.state.contacts
+      }
+    },
+  },
   data() {
     return {
-      services: [
-        { link: "/", name: "คอร์สเรียน" },
-        { link: "/", name: "ระบายปัญหา" },
-        { link: "/", name: "บทความ" },
-        { link: "/", name: "สำหรับองค์กร" }
+      menus: [
+        {
+          name: 'New Arrival',
+          name_th: 'สินค้าใหม่',
+          link: '/new-arrival',
+        },
+        {
+          name: 'Brands',
+          name_th: 'แบรนด์',
+          link: '/brand',
+        },
+        {
+          name: 'Men',
+          name_th: 'ผู้ชาย',
+          link: '/category/men',
+        },
+        {
+          name: 'Women',
+          name_th: 'ผู้หญิง',
+          link: '/category/women',
+        },
+        {
+          name: 'Accessories',
+          name_th: 'เครื่องประดับ',
+          link: '/category/accessories',
+        },
+        {
+          name: 'Sale',
+          name_th: 'Sale',
+          link: '/sale',
+        },
+        {
+          name: 'Blogs',
+          name_th: 'blog',
+          link: '/blog',
+        }
       ],
-      aboutAs: [
-        { link: "/", name: "เกี่ยวกับเรา" },
-        { link: "/", name: "สื่อ" },
-        { link: "/", name: "พาร์ทเนอร์" },
-        { link: "/", name: "ติดต่อเรา" }
-      ],
-      followUs: [
-        { link: "/", name: "Facebook", imgUrl: "~/static/facebook.png" },
-        { link: "/", name: "Instagram", imgUrl: "~/static/instagram.png" }
-      ]
     };
   },
   methods: {
@@ -102,45 +129,41 @@ footer {
   width: 100%;
   padding-top: 40px;
   padding-bottom: 40px;
-  background: #fff;
-  .header {
-    color: $primary;
-    font-size: 16px;
-    font-weight: 700;
+  background: #000;
+  .footer-section {
+    padding-left: 10px;
+    padding-right: 10px;
+    .header {
+      color: #fff;
+      padding-bottom: 15px;
+      border-bottom: 1px #fff solid;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+    a {
+      color: #fff;
+    }
+    .footer-link-box {
+      width: 100%;
+      display: block;
+      margin-top: 10px;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 0.8rem;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
   }
-  .footer-header {
-    font-size: 1.4rem;
+  .footer {
+    width: 100%;
     color: #fff;
-  }
-  .footer-link {
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 16px;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.6;
-    }
-  }
-  .desc {
-    margin: 10px;
-    max-width: 400px;
-    font-weight: 500;
-  }
-  .bottom-section {
-    display: flex;
-    margin: 20px 0;
-    .left {
-      color: #586074;
-      margin-right: auto;
-    }
-    .bottom-item {
-      font-weight: 500;
-      margin: 0 20px;
-    }
-    .right {
-      margin-left: auto;
-    }
+    margin-top: 30px;
+    padding-left: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
   }
 }
 </style>

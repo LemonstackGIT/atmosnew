@@ -1,7 +1,23 @@
 export const state = () => ({
-  loadingMain: false,
-  expand: true,
-  auth: false
+  brands: [
+    { name: 'Nike', link: '/brand/Nike' },
+    { name: 'Adidas', link: '/brand/Adidas' },
+    { name: 'Asics', link: '/brand/Asics' },
+    { name: 'New Balance', link: '/brand/NewBalance' },
+    { name: 'Atmos', link: '/brand/Atmos' },
+    { name: 'All Brands', link: '/brand/AllBrands' },
+  ],
+  supports: [
+    { name: 'About Us', link: '/about' },
+    { name: 'Store Locations', link: '/about' },
+    { name: 'Terms & Conditions', link: '/about' },
+    { name: 'Return Policy', link: '/about' },
+  ],
+  contacts: [
+    { name: '062-726-9999' },
+    { name: '(10.00 am - 6.00 pm)' },
+    { name: 'info@atmos-bangkok.com' }
+  ]
 });
 
 export const getters = {

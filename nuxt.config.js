@@ -1,4 +1,5 @@
 import colors from "vuetify/es5/util/colors";
+const webpack = require("webpack");
 
 export default {
   generate: {
@@ -31,19 +32,15 @@ export default {
           "https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800&display=swap",
         rel: "stylesheet"
       },{
-        href:
-          "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@200;300;400;500;600;700&display=swap",
-        rel: "stylesheet"
-      },{
-        href:
-          "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap",
-        rel: "stylesheet"
-      },{
         href: "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap",
         rel: "stylesheet"
       },{
         href:
           "https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css",
+        rel: "stylesheet"
+      },{
+        href:
+          "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css",
         rel: "stylesheet"
       }
     ]
@@ -90,6 +87,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ["vuetify/lib", "tiptap-vuetify"]
+    transpile: ["vuetify/lib", "tiptap-vuetify"],
+    vendor: ['jquery'],
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery'
+      })
+    ]
   }
 };

@@ -21,6 +21,7 @@
     "express": "^4.17.2",
     "firebase": "^9.2.0",
     "install": "^0.13.0",
+    "jquery": "^3.6.0",
     "net": "^1.0.2",
     "npm": "^8.4.1",
     "nuxt": "^2.15.7",
@@ -36,7 +37,8 @@
     "vue-morris": "^1.1.0",
     "vue-slick-carousel": "^1.0.6",
     "vueditor": "^0.3.1",
-    "vuetify": "^2.5.5"
+    "vuetify": "^2.5.5",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.1"
