@@ -6,8 +6,6 @@ export default {
     port: process.env.PORT,
     host: process.env.HOST
   },
-  generate: {
-  },
   ssr: true,
   target: "server",
   head: {
