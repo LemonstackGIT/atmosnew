@@ -9,7 +9,7 @@ export default {
   generate: {
   },
   ssr: true,
-  target: "static",
+  target: "server",
   head: {
     titleTemplate: "%s",
     title: "Atmos Bangkok",
