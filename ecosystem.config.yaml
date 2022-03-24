@@ -1,7 +1,6 @@
 apps:
-      - name: App
+      - name: Atmos
         exec_mode: cluster
         instances: max
-        script: ./node_modules/nuxt/bin/nuxt.js
+        script: npm
         args: start
-        
