@@ -2,10 +2,6 @@ import colors from "vuetify/es5/util/colors";
 const webpack = require("webpack");
 
 export default {
-  server: {
-    port: process.env.PORT,
-    host: process.env.HOST
-  },
   generate: {
   },
   ssr: true,
