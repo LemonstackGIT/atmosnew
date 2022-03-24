@@ -1,16 +1,12 @@
 {
-  "name": "hearing-heart-web",
+  "name": "Atmose",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": "v16.2.0"
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "deploy": "firebase deploy --only hosting"
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
